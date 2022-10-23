@@ -1,0 +1,47 @@
+{
+  "name": "template-element-plus",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build --mode production",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.0.10",
+    "axios": "^1.1.2",
+    "echarts": "^5.4.0",
+    "element-plus": "^2.2.17",
+    "js-cookie": "^3.0.1",
+    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
+    "mitt": "^3.0.0",
+    "mockjs": "^1.1.0",
+    "nanoid": "^4.0.0",
+    "nprogress": "^0.2.0",
+    "path-browserify": "^1.0.1",
+    "pinia": "^2.0.23",
+    "qs": "^6.11.0",
+    "vue": "^3.2.40",
+    "vue-echarts": "^6.2.3",
+    "vue-router": "^4.1.5",
+    "vuedraggable": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/js-cookie": "^3.0.2",
+    "@types/lodash": "^4.14.186",
+    "@types/node": "^18.8.0",
+    "@types/nprogress": "^0.2.0",
+    "@types/path-browserify": "^1.0.0",
+    "@types/qs": "^6.9.7",
+    "@vitejs/plugin-vue": "^3.1.2",
+    "@vitejs/plugin-vue-jsx": "^2.0.1",
+    "sass": "^1.55.0",
+    "typescript": "^4.8.4",
+    "unplugin-vue-components": "^0.22.8",
+    "vite": "^3.1.6",
+    "vite-plugin-mock": "^2.9.6",
+    "vite-svg-loader": "^3.6.0",
+    "vue-tsc": "^1.0.1"
+  }
+}

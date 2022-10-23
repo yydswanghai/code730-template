@@ -1,0 +1,1 @@
+export { default as SwiperProvider } from './index.vue'

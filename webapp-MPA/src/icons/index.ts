@@ -1,0 +1,13 @@
+export { default as Film } from './Film.svg?component'
+export { default as Video } from './Video.svg?component'
+export { default as shortVideo } from './shortVideo.svg?component'
+export { default as Show } from './Show.svg?component'
+export { default as Search } from './Search.svg?component'
+export { default as User } from './User.svg?component'
+export { default as ArrowDownSFill } from './ArrowDownSFill.svg?component'
+export { default as UploadOutline } from './UploadOutline.svg?component'
+export { default as Camera } from './Camera.svg?component'
+export { default as PhotoAlbum } from './PhotoAlbum.svg?component'
+export { default as Camcorder } from './Camcorder.svg?component'
+export { default as Microphone } from './Microphone.svg?component'
+
