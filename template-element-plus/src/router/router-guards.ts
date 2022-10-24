@@ -1,6 +1,6 @@
 import { useAsyncRouteStore } from '@/store/modules/asyncRoute'
 import { useUserStore } from '@/store/modules/user'
-import { Router } from 'vue-router'
+import { Router, RouteRecordRaw } from 'vue-router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import { PageEnum } from '@/enums/pageEnum'
@@ -39,7 +39,7 @@ export function createRouterGuards(router: Router) {
                 const routes = await asyncRouteStore.generateRoutes(userInfo);
                 // 动态添加可访问路由表
                 routes.forEach(item => {
-                    router.addRoute(item as any)
+                    router.addRoute(item as RouteRecordRaw)
                 });
                 return to.fullPath;
             } catch (error) {
@@ -56,7 +56,7 @@ export function createRouterGuards(router: Router) {
         // 在这里设置需要缓存的组件名称
         const keepAliveComponents = asyncRouteStore.keepAliveComponents;
         // 当前组件名
-        const currentComName: any = to.matched.find(it => it.name == to.name)?.name;
+        const currentComName = to.matched.find(it => it.name == to.name)?.name as string;
         // 如果当前组件不在缓存组件数组里，并且开启 meta.keepAlive
         if(currentComName && !keepAliveComponents.includes(currentComName) && to.meta?.keepAlive){
             keepAliveComponents.push(currentComName)// 缓存的当前组件名

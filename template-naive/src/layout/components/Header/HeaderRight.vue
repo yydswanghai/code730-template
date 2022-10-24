@@ -56,7 +56,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, h, onMounted } from 'vue'
+import { defineComponent, ref, h, onMounted, VNodeChild } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/store/modules/user'
 import { SearchOutlined, GithubFilled, FullscreenOutlined, FullscreenExitOutlined, UserOutlined, SettingOutlined } from '@vicons/antd'
@@ -107,7 +107,7 @@ export default defineComponent({
                 h('div', { class: 'custom-desc' }, { default: () => desc })
             ])
         }
-        let vNode: any = null
+        let vNode: null | VNodeChild = null;
         let username = userStore.user_info?.username || '';
         if(userStore.user_type == userEnum.system){
             avatar.value = Avatar3;

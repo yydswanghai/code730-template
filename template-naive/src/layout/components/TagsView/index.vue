@@ -71,7 +71,7 @@ export default defineComponent({
         const tagsViewStore = useTagsViewStore();
         const themeVars = useThemeVars();
         const tagsWrapRef = ref(null)
-        const tagsScrollRef = ref<any>(null)
+        const tagsScrollRef = ref<HTMLDivElement | null>(null)
         const contextMenuRef = ref();
         const state = reactive({
             activeKey: $route.fullPath,// 当前页面key
@@ -124,7 +124,7 @@ export default defineComponent({
                 state.scrollable = true;// 显示左右点击按钮
                 if(autoScroll){
                     let tagList = tagsScrollRef.value.querySelectorAll('.tags-scroll-item') || [];
-                    Array.of(tagList).forEach((tag: HTMLElement) => {
+                    Array.of(tagList).forEach((tag: any) => {
                         if (tag.id === `tag${state.activeKey.split('/').join('\/')}`) {
                             // scrollIntoView 让当前的元素滚动到浏览器窗口的可视区域内。
                             // Detail: https://developer.mozilla.org/zh-CN/docs/web/api/element/scrollintoview
@@ -141,6 +141,9 @@ export default defineComponent({
          * @param amplitude 每次滚动的长度
          */
         function scrollTo(value: number, amplitude: number): any {
+            if(!tagsScrollRef.value){
+                return;
+            }
             const currentScroll = tagsScrollRef.value.scrollLeft;
             const scrollWidth =
                 (amplitude > 0 && currentScroll + amplitude >= value) ||
@@ -152,6 +155,9 @@ export default defineComponent({
         }
         /* 向前滚动 */
         function scrollPrev() {
+            if(!tagsScrollRef.value){
+                return;
+            }
             const offsetWidth = tagsScrollRef.value.offsetWidth;
             const currentScroll = tagsScrollRef.value.scrollLeft;
             if (!currentScroll) return
@@ -160,6 +166,9 @@ export default defineComponent({
         }
         /* 向后滚动 */
         function scrollNext() {
+            if(!tagsScrollRef.value){
+                return;
+            }
             const offsetWidth = tagsScrollRef.value.offsetWidth;
             const tagsWidth = tagsScrollRef.value.scrollWidth;
             const currentScroll = tagsScrollRef.value.scrollLeft;

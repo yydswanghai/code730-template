@@ -59,7 +59,7 @@ export default [
     {
         url: '/admin/oauth/token',
         method: 'post',
-        response: (opt: { query:  Record<string,any> }) => {
+        response: (opt: { query:  Record<string, any> }) => {
             const { scope, type } = opt.query;
             if(scope === 'app' && type === '1'){
                 return getTokenResult(1)
@@ -79,7 +79,7 @@ export default [
     {
         url: '/admin/loginInfo',
         method: 'get',
-        response: (opt: { query:  Record<string,any> }) => {
+        response: (opt: { query:  Record<string, any> }) => {
             const { type } = opt.query;
             if(type === '1'){
                 return getUserInfo(1)

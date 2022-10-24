@@ -29,7 +29,7 @@
 
 <script lang="ts">
 import { useProjectSettingStore } from '@/store/modules/projectSetting'
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute, useRouter, RouteRecordNormalized } from 'vue-router'
 import { defineComponent ,computed } from 'vue'
 import { nanoid } from 'nanoid'
 
@@ -41,7 +41,7 @@ export default defineComponent({
         const settingStore = useProjectSettingStore();
 
         // 生成面包屑
-        function generator(routerMap: any[]) {
+        function generator(routerMap: RouteRecordNormalized[]) {
             return routerMap.map(it => {
                 const currentMenu = {
                     ...it,
@@ -51,7 +51,7 @@ export default defineComponent({
                 }
                 // 是否有子菜单，并递归处理
                 if(it.children && it.children.length > 0){
-                    currentMenu.children = generator(it.children)
+                    currentMenu.children = generator(it.children as RouteRecordNormalized[])
                 }
                 return currentMenu
             })

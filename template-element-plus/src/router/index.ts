@@ -19,7 +19,7 @@ Object.keys(modules).forEach((key) => {
 });
 /* 按照 meta.sort 排序 */
 function sortRoute(a: IRouteRecordRaw, b: IRouteRecordRaw) {
-    return (a.meta?.sort as any || 0) - (b.meta?.sort as any || 0);
+    return (a.meta?.sort || 0) - (b.meta?.sort || 0);
 }
 routeModuleList.sort(sortRoute);
 
