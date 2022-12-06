@@ -5,6 +5,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import { resolve } from 'path'
 import svgLoader from 'vite-svg-loader'
 import { viteMockServe } from 'vite-plugin-mock'
+import VueSetupExtend from 'vite-plugin-vue-setup-extend'
 
 function pathResolve(dir: string) {
   return resolve(process.cwd(), '.', dir);
@@ -61,7 +62,8 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
           import { setupProdMockServer } from './mockProdServer';
           setupProdMockServer();
         `
-      })
+      }),
+      VueSetupExtend(),// script标签上可以添加name
     ],
   }
 }
