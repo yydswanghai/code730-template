@@ -40,7 +40,7 @@ import { Menu as AsideMenu } from './components/Menu/'
 import { Header } from './components/Header/'
 import { Main } from './components/Main/'
 import { TagsView } from './components/TagsView/'
-import useAddTheme from '@/hooks/useAddTheme'
+import { useAddMenuTheme } from '@/hooks/useAddTheme'
 
 export default defineComponent({
     name: 'Layout',
@@ -70,7 +70,7 @@ export default defineComponent({
             settingStore.menuSetting.minMenuWidth + 'px' :
             settingStore.menuSetting.menuWidth + 'px');
         /* 反转样式 */
-        const { inverted, headerInverted } = useAddTheme();
+        const { inverted, headerInverted } = useAddMenuTheme();
 
         /* 监听屏幕宽度改变 */
         function watchScreenWidth() {

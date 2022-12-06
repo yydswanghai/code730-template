@@ -8,7 +8,7 @@
 <script lang="ts">
 import { defineComponent, ref, computed } from "vue"
 import { useProjectSettingStore } from '@/store/modules/projectSetting'
-import useChangeTheme from '@/hooks/useChangeTheme'
+import { useChangeTheme } from '@/hooks/useChangeTheme'
 
 export default defineComponent({
     setup(){

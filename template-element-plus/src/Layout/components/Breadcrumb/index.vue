@@ -30,7 +30,7 @@
 <script lang="ts">
 import { defineComponent, computed } from 'vue'
 import { useProjectSettingStore } from '@/store/modules/projectSetting'
-import { useRoute, useRouter, RouteRecordNormalized } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { nanoid } from 'nanoid'
 
 export default defineComponent({

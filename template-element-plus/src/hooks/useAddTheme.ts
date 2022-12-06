@@ -4,7 +4,7 @@ import { useProjectSettingStore } from '@/store/modules/projectSetting'
 /**
  * 添加栏目反转样式变量
  */
-export default function useAddMenuTheme() {
+export function useAddMenuTheme() {
     const settingStore = useProjectSettingStore();
     const inverted = computed(() => ['dark', 'mix-dark'].includes(settingStore.navTheme));
     const headerInverted = computed(() => {

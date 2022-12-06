@@ -85,7 +85,7 @@ import Avatar2 from '@/assets/avatar-2.svg?url'
 import Avatar3 from '@/assets/avatar-3.svg?url'
 
 export default defineComponent({
-    name: 'HeaderLeft',
+    name: 'HeaderRight',
     components: {
         Search,
         Github,

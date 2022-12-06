@@ -2,7 +2,7 @@ import { lighten } from '@/utils/'
 /**
  * 修改主题变量
  */
-export default function useChangeTheme(color: string = '#D53C49') {
+export function useChangeTheme(color: string = '#D53C49') {
 
     const el = document.documentElement;
     el.style.setProperty('--el-color-primary', color);
