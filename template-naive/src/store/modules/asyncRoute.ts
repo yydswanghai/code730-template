@@ -25,7 +25,7 @@ export const useAsyncRouteStore = defineStore({
     state: (): IState => ({
         routes: [],// 用户路由
         menus: [],// 菜单 用于生成侧边栏
-        keepAliveComponents: [],// 缓存组件
+        keepAliveComponents: [],// 缓存组件(组件name)
     }),
     getters: {
         getUserStore(){// 用户状态

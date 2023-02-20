@@ -15,7 +15,7 @@ import { ComponentOutline } from '@/icons'
  * @param meta.sort 排序
  * @param meta.hidden 在菜单栏中隐藏
  * @param meta.alwaysShow 一直显示根路由
- * @param meta.keepAlive 缓存该路由
+ * @param meta.keepAlive 缓存该路由name (组件name)
  * @param meta.affix 固定标签
  */
 
@@ -31,13 +31,13 @@ const routes: Array<IRouteRecordRaw> = [
                 path: 'from',
                 name: 'Comp-From',
                 component: () => import('@/views/menus/comp/form.vue'),
-                meta: { title: '基础表单组件' },
+                meta: { title: '基础表单组件', keepAlive: true },
             },
             {
                 path: 'table',
                 name: 'Column-Table',
                 component: () => import('@/views/menus/comp/table.vue'),
-                meta: { title: '基础表格组件' },
+                meta: { title: '基础表格组件', keepAlive: true },
             },
         ]
     }
