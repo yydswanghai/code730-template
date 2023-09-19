@@ -1,0 +1,52 @@
+.layout{
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+
+    .layout-header{
+        padding-left: 0;
+
+        .breadcrumb{
+            display: inline-block;
+            margin-left: 20px;
+        }
+    }
+
+    .silde-title{
+        color: #fff;
+        height: 64px;
+        line-height: 64px;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .layout-content{
+        padding: 20px;
+        position: relative;
+        box-sizing: border-box;
+
+        .layout-animate{
+            position: absolute;
+            width: calc(100% - 40px);
+            height: calc(100% - 40px);
+            display: block;
+            top: 20px;
+            left: 20px;
+        }
+    }
+
+    .tag-view-container{
+        width: 100%;
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 4px;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 12%), 0 0 3px 0 rgba(0, 0, 0, 4%);
+
+        .tag-item{
+            margin-right: 5px;
+            font-size: 14px;
+        }
+    }
+}
