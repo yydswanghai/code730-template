@@ -2,7 +2,8 @@ import { IRouteRecordRaw } from '@/router/types'
 import { Layout } from '@/router/constant'
 import { renderIcon } from "@/utils/"
 import { ComponentOutline } from '@/icons'
-
+import FormComp from '@/views/menus/comp/form.vue';
+import TableComp from '@/views/menus/comp/table.vue';
 
 /**
  * @param path 路由路径，必填，如果是外部链接会重新打开新窗口跳转到指定地址
@@ -30,13 +31,13 @@ const routes: Array<IRouteRecordRaw> = [
             {
                 path: 'from',
                 name: 'Comp-From',
-                component: () => import('@/views/menus/comp/form.vue'),
+                component: FormComp,
                 meta: { title: '基础表单组件', keepAlive: true },
             },
             {
                 path: 'table',
                 name: 'Column-Table',
-                component: () => import('@/views/menus/comp/table.vue'),
+                component: TableComp,
                 meta: { title: '基础表格组件', keepAlive: true },
             },
         ]

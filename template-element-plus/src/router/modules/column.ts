@@ -2,7 +2,15 @@ import { IRouteRecordRaw } from '@/router/types'
 import { Layout } from '@/router/constant'
 import { renderIcon } from "@/utils/"
 import { Columns } from '@/icons'
-
+import IndexA from '@/views/menus/column/index-a.vue';
+import IndexA1 from '@/views/menus/column/index-a-1.vue';
+import IndexA2 from '@/views/menus/column/index-a-2.vue';
+import IndexB from '@/views/menus/column/index-b.vue';
+import IndexB1 from '@/views/menus/column/index-b-1.vue';
+import IndexB2 from '@/views/menus/column/index-b-2.vue';
+import IndexB2X from '@/views/menus/column/index-b-2-x.vue';
+import IndexB2Y from '@/views/menus/column/index-b-2-y.vue';
+import IndexC from '@/views/menus/column/index-c.vue';
 
 /**
  * @param path 路由路径，必填，如果是外部链接会重新打开新窗口跳转到指定地址
@@ -30,20 +38,20 @@ const routes: Array<IRouteRecordRaw> = [
             {
                 path: 'A',
                 name: 'Column-A',
-                component: () => import('@/views/menus/column/index-a.vue'),
+                component: IndexA,
                 redirect: '/column/A/1',
                 meta: { title: '栏目A' },
                 children: [
                     {
                         path: '1',
                         name: 'Column-A-1',
-                        component: () => import('@/views/menus/column/index-a-1.vue'),
+                        component: IndexA1,
                         meta: { title: '栏目A-1' }
                     },
                     {
                         path: '2',
                         name: 'Column-A-2',
-                        component: () => import('@/views/menus/column/index-a-2.vue'),
+                        component: IndexA2,
                         meta: { title: '栏目A-2' }
                     },
                 ]
@@ -51,31 +59,31 @@ const routes: Array<IRouteRecordRaw> = [
             {
                 path: 'B',
                 name: 'Column-B',
-                component: () => import('@/views/menus/column/index-b.vue'),
+                component: IndexB,
                 meta: { title: '栏目B' },
                 children: [
                     {
                         path: '1',
                         name: 'Column-B-1',
-                        component: () => import('@/views/menus/column/index-b-1.vue'),
+                        component: IndexB1,
                         meta: { title: '栏目B-1' }
                     },
                     {
                         path: '2',
                         name: 'Column-B-2',
-                        component: () => import('@/views/menus/column/index-b-2.vue'),
+                        component: IndexB2,
                         meta: { title: '栏目B-2' },
                         children: [
                             {
                                 path: 'X',
                                 name: 'Column-B-2-X',
-                                component: () => import('@/views/menus/column/index-b-2-x.vue'),
+                                component: IndexB2X,
                                 meta: { title: '栏目B-2-X' }
                             },
                             {
                                 path: 'Y',
                                 name: 'Column-B-2-Y',
-                                component: () => import('@/views/menus/column/index-b-2-y.vue'),
+                                component: IndexB2Y,
                                 meta: { title: '栏目B-2-Y' }
                             },
                         ]
@@ -85,7 +93,7 @@ const routes: Array<IRouteRecordRaw> = [
             {
                 path: 'C',
                 name: 'Column-C',
-                component: () => import('@/views/menus/column/index-c.vue'),
+                component: IndexC,
                 meta: { title: '栏目C' }
             }
         ]

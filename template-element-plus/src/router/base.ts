@@ -3,6 +3,9 @@ import { IRouteRecordRaw } from './types'
 import { renderIcon } from '@/utils/'
 import { Dashboard } from '@/icons/'
 import { PageEnum } from '@/enums/pageEnum'
+import DashboardComp from '@/views/menus/dashboard/index.vue'
+import RedirectComp from '@/views/redirect/index.vue';
+import LoginComp from '@/views/login/index.vue';
 
 export const RootRoute: IRouteRecordRaw = {
     path: '/',
@@ -22,7 +25,7 @@ export const DashboardRoute: IRouteRecordRaw = {
             path: '',
             name: `${PageEnum.HOME_NAME}Index`,
             meta: { title: '控制台' },
-            component: () => import('@/views/menus/dashboard/index.vue'),
+            component: DashboardComp,
         },
     ]
 }
@@ -37,7 +40,7 @@ export const RedirectRoute: IRouteRecordRaw = {
         {
             path: '/redirect/:path(.*)',
             name: `${PageEnum.REDIRECT_NAME}Index`,
-            component: () => import('@/views/redirect/index.vue'),
+            component: RedirectComp,
             meta: { title: '刷新' },
         },
     ],
@@ -63,6 +66,6 @@ export const ErrorPageRoute: IRouteRecordRaw = {
 export const LoginRoute: IRouteRecordRaw = {
     path: '/login',
     name: 'Login',
-    component: () => import('@/views/login/index.vue'),
+    component: LoginComp,
     meta: { title: '登录' },
 }

@@ -1,3 +1,2 @@
-export const Layout = () => import('@/Layout/index.vue');
-
-export const ErrorPage = () => import('@/views/error-page/index.vue');
+export { default as Layout } from '@/Layout/index.vue';
+export { default as ErrorPage } from '@/views/error-page/index.vue';
