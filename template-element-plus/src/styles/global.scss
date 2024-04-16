@@ -96,3 +96,7 @@ a:hover {
     opacity: 0;
     transform: scale(1.03);
 }
+/* 进度条背景色 */
+#nprogress .bar{
+    background: var(--el-color-primary) !important;
+}

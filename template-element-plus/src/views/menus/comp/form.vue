@@ -8,8 +8,8 @@
     </div>
 </template>
 
-<script lang="ts" setup name="Comp-From">
-import { ref } from 'vue';
+<script lang="ts" setup>
+defineOptions({ name: 'Comp-From' });
 const input = ref('')
 </script>
 <style lang="scss" scoped>

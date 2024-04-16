@@ -5,7 +5,9 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import { resolve } from 'path'
 import svgLoader from 'vite-svg-loader'
 import { viteMockServe } from 'vite-plugin-mock'
-import VueSetupExtend from 'vite-plugin-vue-setup-extend'
+import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 
 function pathResolve(dir: string) {
   return resolve(process.cwd(), '.', dir);
@@ -35,10 +37,9 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       }
     },
     server: {
-      host: true,
+      host: '0.0.0.0',
       port: Number(env.VITE_PORT),
       open: true,
-      strictPort: false,
       cors: true,
       proxy: {
         '/api': {
@@ -51,7 +52,22 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     plugins: [
       vue(),
       vueJsx(),
-      svgLoader(),
+      svgLoader({
+        defaultImport: 'component'
+      }),
+      AutoImport({
+        imports: ['vue', 'vue-router', 'pinia'],
+        dts: 'src/types/auto-imports.d.ts',
+        resolvers: [ElementPlusResolver()],
+        injectAtEnd: false,
+        eslintrc: {
+          enabled: true
+        }
+      }),
+      Components({
+        resolvers: [ElementPlusResolver()],
+        dts: 'src/types/components.d.ts'
+      }),
       viteMockServe({
         mockPath: 'mock',
         localEnabled: command === 'serve',// 开发环境打包开关
@@ -60,8 +76,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
           import { setupProdMockServer } from './mockProdServer';
           setupProdMockServer();
         `
-      }),
-      VueSetupExtend(),// script标签上可以添加name
+      })
     ]
   }
 }

@@ -1,32 +1,18 @@
 <template>
-  <el-config-provider namespace="el">
-      <router-view />
+  <el-config-provider namespace="el" :locale="zhCn">
+    <router-view />
   </el-config-provider>
 </template>
 
-<script lang="ts">
-import { defineComponent, provide, unref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+<script lang="ts" setup>
 import { toggleDark } from '@/composables/'
 import { useProjectSettingStore } from '@/store/modules/projectSetting'
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
 
-export default defineComponent({
-  setup(){
-    const $route = useRoute();
-    const $router = useRouter();
-    const settingStore = useProjectSettingStore();
-    toggleDark(settingStore.themeSetting.isDark);// 初始化亮色主题
-    /* 全局刷新 */
-    provide('reload', () => {
-      $router.push({ path: '/redirect' + unref($route).fullPath });
-    });
-    return {
-    }
-  }
-})
+const $route = useRoute();
+const $router = useRouter();
+const settingStore = useProjectSettingStore();
+toggleDark(settingStore.themeSetting.isDark);// 初始化亮色主题
+/* 全局刷新 */
+provide('reload', () => $router.push({ path: '/redirect' + unref($route).fullPath }));
 </script>
-<style>
-#nprogress .bar{
-    background: var(--el-color-primary) !important;
-}
-</style>

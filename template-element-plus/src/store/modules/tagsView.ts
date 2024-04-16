@@ -1,4 +1,3 @@
-import { defineStore } from 'pinia'
 import { RouteLocationNormalizedLoaded } from 'vue-router'
 import { PageEnum } from '@/enums/pageEnum'
 
@@ -22,45 +21,50 @@ function retainAffixRoute(list: IRouteItem[]) {
 /**
  * 标签
  */
-export const useTagsViewStore = defineStore({
-    id: 'tags-view',
-    state: (): ITagsViewState => ({
-        tagsList: [],
-    }),
-    actions: {
-        /* 初始化标签页 */
-        initTags(routes: IRouteItem[]){
-            this.tagsList = routes;
-        },
-        /* 添加标签页 */
-        addTags(route: IRouteItem){
-            if (whiteList.includes(route.name)) return false;
-            const isExists = this.tagsList.some(it => it.fullPath == route.fullPath);
-            if (!isExists) {// 不存在则添加
-                this.tagsList.push(route);
+export const useTagsViewStore = defineStore('tags-view', () => {
+    const state = reactive<ITagsViewState>({
+        tagsList: []
+    });
+    /* 初始化标签页 */
+    function initTags(routes: IRouteItem[]) {
+        state.tagsList = routes;
+    }
+    /* 添加标签页 */
+    function addTags(route: IRouteItem) {
+        if (whiteList.includes(route.name)) return false;
+        const isExists = state.tagsList.some(it => it.fullPath == route.fullPath);
+        if (!isExists) {// 不存在则添加
+            state.tagsList.push(route);
+        }
+        return true;
+    }
+    /* 关闭其他 */
+    function closeOtherTags(route: IRouteItem) {
+        state.tagsList = state.tagsList.filter(it => {
+            if(it.fullPath === PageEnum.HOME || it.fullPath === route.fullPath){
+                return true;
             }
-            return true;
-        },
-        /* 关闭其他 */
-        closeOtherTags(route: IRouteItem){
-            this.tagsList = this.tagsList.filter(it => {
-                if(it.fullPath === PageEnum.HOME || it.fullPath === route.fullPath){
-                    return true;
-                }
-                return false;
-            });
-        },
-        // 关闭当前页
-        closeCurrentTag(route: IRouteItem){
-            const index = this.tagsList.findIndex(it => it.fullPath == route.fullPath);
-            this.tagsList.splice(index, 1);
-        },
-        /* 关闭全部 */
-        closeAllTags(){
-            // 重新赋值，仅有设置了 meta:{ affix: true } 的保留
-            this.tagsList = retainAffixRoute(this.tagsList);
-            localStorage.removeItem(this.$id);
-        },
+            return false;
+        });
+    }
+    /* 关闭当前页 */
+    function closeCurrentTag(route: IRouteItem) {
+        const index = state.tagsList.findIndex(it => it.fullPath == route.fullPath);
+        state.tagsList.splice(index, 1);
+    }
+    /* 关闭全部 */
+    function closeAllTags() {
+        // 重新赋值，仅有设置了 meta:{ affix: true } 的保留
+        state.tagsList = retainAffixRoute(state.tagsList);
+        localStorage.removeItem(useTagsViewStore().$id);
+    }
+    return {
+        ...toRefs(state),
+        initTags,
+        addTags,
+        closeOtherTags,
+        closeCurrentTag,
+        closeAllTags
     }
 });
 
@@ -73,7 +77,7 @@ export function initTagsViewStore(route: IRouteItem) {
     instance.initTags(cacheRoutes);
 
     // 订阅数据变化，变化时存储
-    instance.$subscribe((mutation, state) => {
+    instance.$subscribe((_, state) => {
         localStorage.setItem(instance.$id, JSON.stringify(state.tagsList));
     });
 

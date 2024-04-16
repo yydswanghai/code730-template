@@ -1,7 +1,5 @@
 /* 系统设置 */
 export interface IProject {
-    navMode: 'vertical' | 'horizontal' | 'horizontal-mix'
-    navTheme: 'dark' | 'light' | 'mix-dark'
     isMobile: boolean
     collapsed: boolean
     themeSetting: IThemeSetting
@@ -11,20 +9,15 @@ export interface IProject {
     crumbsSetting: ICrumbsSetting
     animateSetting: IAnimateSetting
 }
-/* 导航模式 */
-export type INavMode = 'vertical' | 'horizontal' | 'horizontal-mix'
-/* 导航风格 */
-export type INavTheme = 'dark' | 'light' | 'mix-dark'
 export interface IThemeSetting {
     primary: string
     isDark: boolean
-    dark: string
     colorList: string[]
 }
 /* 顶栏 */
 export interface IHeaderSetting {
-    bgColor: string
-    invertedBgColor: string
+    bg: string
+    color: string
     fixed: boolean
     isReload: boolean
 }
@@ -35,8 +28,8 @@ export interface ITagsViewSetting{
 }
 /* 菜单 */
 export interface IMenuSetting{
-    bgColor: string
-    invertedBgColor: string
+    bg: string
+    color: string
     minMenuWidth: number
     menuWidth: number
     fixed: boolean

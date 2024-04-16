@@ -1,23 +1,16 @@
-
 $header-height: 64px;
 $footer-height: 70px;
 
 /* el主题色 */
-$primary-color: #D53C49;
+$primary-color: #589ef8;
 $success-color: #21ba45;
 $waring-color: #FF9043;
 $danger-color: #db2828;
 $error-color: #db2828;
 $info-color: #589ef8;
-/* 自定义变量 */
-$hover-color: #FF7070;
-$pressed-color: #FF7070;
-$pass-color: #28E4C0;
-$blue-color: #567BFF;
 /* 栏目反转/暗色模式颜色 */
-$white-theme: #FFFFFF;   // 亮色反转色
-$black-theme: #001428;// 暗色反转色
-$dark: #18181C;// 暗色模式
+$white-theme: #FFFFFF;   // 亮色
+$black-theme: #304156;// 暗色
 
 :export {
     headerHeight: $header-height;
@@ -29,12 +22,7 @@ $dark: #18181C;// 暗色模式
     dangerColor: $danger-color;
     errorColor: $error-color;
     infoColor: $info-color;
-    hoverColor: $hover-color;
-    pressedColor: $pressed-color;
-    passColor: $pass-color;
-    blueColor: $blue-color;
 
     whiteTheme: $white-theme;
     blackTheme: $black-theme;
-    darkColor: $dark;
 }
