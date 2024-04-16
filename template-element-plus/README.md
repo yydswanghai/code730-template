@@ -29,9 +29,7 @@
 ```
 > `所有的菜单栏目统一放在views/menus目录下`
 
-2. 按需引入组件，自动生成的目录在`src`下的`components.d.ts`
-
-3. 主题色：组件库颜色被`styles/element/index.scss`重置，颜色变量在`var.scss`，暗主题色一样
+2. 主题色：组件库颜色被`styles/element/index.scss`重置，颜色变量在`var.scss`，暗主题色一样
 
 > 颜色配置修改
 
@@ -41,7 +39,7 @@
 
 暗色模式只替换了`primary`其他需要的自行添加即可
 
-4. icon组件的使用：
+3. icon组件的使用：
 
 注意：`icons`目录下生成组件，并统一导出时命名都是大驼峰式命名法（首字母也要大写）
 后台接口请求到的`icon`实际是一个字符串，转换为组件后也要跟这个命名保持一致才会正确加载。
@@ -67,7 +65,7 @@ import AsideLogo from "@/assets/logo-2.svg?component"
 </script>
 ```
 
-5. 关于在src目录下使用node的`path`模块，因为vite源码中设定了不允许在客户端代码中访问内置模块代码。
+4. 关于在src目录下使用node的`path`模块，因为vite源码中设定了不允许在客户端代码中访问内置模块代码。
 所以这里使用一个实现了`path`模块的`path-browserify`
 
 ```sh
@@ -75,13 +73,13 @@ npm i path-browserify
 npm install --save @types/path-browserify
 ```
 
-6. vue-router4 动态添加路由，刷新页面警告处理，详情：https://juejin.cn/post/7145364447349964808
+5. vue-router4 动态添加路由，刷新页面警告处理，详情：https://juejin.cn/post/7145364447349964808
 
-## vite常见问题处理
+## 常见问题处理
 
-optimizeDeps.force：设置为 true 可以强制依赖预构建，而忽略之前已经缓存过的、已经优化过的依赖。
+6. optimizeDeps.force：设置为 true 可以强制依赖预构建，而忽略之前已经缓存过的、已经优化过的依赖。
 
-打包构建时候警告：
+7. 打包构建时候警告：
 
 ```shell
 <stdin>:1:16
@@ -99,3 +97,8 @@ css: {
     }
 }
 ```
+
+8. 关于插件 vite-svg-loader 升级可能有依赖报错的问题，一般不需要对它进行升级
+
+
+
