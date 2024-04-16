@@ -29,7 +29,7 @@ class RequestHttp {
         /**
          * 请求拦截
          */
-        this.service.interceptors.request.use((config: AxiosRequestConfig) => {
+        this.service.interceptors.request.use((config) => {
             let data = config.data;
             if(config.method === 'post'){
                 // axios 自动修改请求头里的 content-type 为 application/x-www-form-urlencoded

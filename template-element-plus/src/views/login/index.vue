@@ -89,8 +89,8 @@ export default defineComponent({
         const currentPsd = computed(() => psdList[Number(psdToggle.value)]);
         /* tab */
         const tabs = [
-            { label: '个人用户', name: userEnum.user1 },
-            { label: '组织用户', name: userEnum.user2 },
+            { label: '用户类型1', name: userEnum.user1 },
+            { label: '用户类型2', name: userEnum.user2 },
             { label: '后台', name: userEnum.system }
         ]
         const activeName = computed({
