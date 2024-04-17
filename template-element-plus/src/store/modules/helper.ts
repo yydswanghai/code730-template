@@ -17,7 +17,7 @@ export async function fetchMenu() {
             const routerTree = convert(routerList)
             const routerMap = addSelf(routerTree)
             asyncImportRoute(routerMap);
-            return routerMap;
+            return formatMenus(routerMap);
         } else {
             ElMessage.error(resp.msg || '请求获取菜单失败');
             return [];
@@ -54,7 +54,6 @@ function formatRouter(resData: any[]) {
             path: isExternal(item.path) ? `/${item.path}` : item.path,// 外部链接
             name: item.name,
             permission: item.permission,
-            type: item.type,
             meta,
             component: item.component,
             children: []
@@ -98,7 +97,6 @@ function addSelf(list: any[]): IRouteRecordRaw[] {
                 name: `${item.name}Index`,
                 component: `${item.path}/index`,
                 permission: item.permission,
-                type: item.type,
                 meta: item.meta,
             })
         }

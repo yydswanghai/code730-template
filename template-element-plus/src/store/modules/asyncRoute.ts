@@ -4,7 +4,7 @@ import { IRouteRecordRaw } from '@/router/types'
 import { PageEnum } from '@/enums/pageEnum'
 import { userEnum } from '@/enums/userEnum'
 import { useUserStore } from './user'
-import { fetchMenu, formatMenus } from './helper'
+import { fetchMenu } from './helper'
 
 export type IState = {
     routes: IRouteRecordRaw[]
@@ -56,7 +56,7 @@ export const useAsyncRouteStore = defineStore('async-route', () => {
             accessedRouters = permissionsList.length ?
             asyncRouter.filter(it => permissionsList.includes(it.name)) : asyncRouter
         }
-        setMenus(formatMenus(accessedRouters));
+        setMenus(accessedRouters);
         setRoutes(accessedRouters);
         return toRaw(accessedRouters);
     }
