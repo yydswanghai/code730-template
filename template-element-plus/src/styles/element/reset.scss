@@ -1,0 +1,21 @@
+/* 重制element样式 */
+.i-dropdown-menu{
+  padding: 8px 4px;
+  .i-dropdown-menu-item{
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      list-style: none;
+      line-height: 22px;
+      padding: 5px 16px;
+      margin: 0;
+      font-size: 14px;
+      color: var(--el-text-color-regular);
+      cursor: pointer;
+      outline: none;
+      &:hover{
+          background-color: var(--el-dropdown-menuItem-hover-fill) !important;
+          color: var(--el-color-primary);
+      }
+  }
+}

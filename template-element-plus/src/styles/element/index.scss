@@ -22,3 +22,4 @@ $info-color: variable.$info-color;
 
 // 自定义暗色主题
 @use "./dark.scss";
+@use "./reset.scss";
