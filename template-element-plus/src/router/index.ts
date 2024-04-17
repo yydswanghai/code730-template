@@ -5,10 +5,10 @@ import { RootRoute, DashboardRoute, RedirectRoute, LoginRoute, ErrorPageRoute } 
 import { isExternal } from '@/utils/'
 
 /* 加载modules目录下的所有文件 */
-const modules: Record<string, any> = import.meta.glob('./modules/**/*.ts', { eager: true });
+const modules: Record<string, any> = import.meta.glob('./modules/**/*.ts', { eager: true, import: 'default' });
 const routeModuleList: IRouteRecordRaw[] = [];
 Object.keys(modules).forEach((key) => {
-    const mod = modules[key].default || {};
+    const mod = modules[key] || {};
     const modList = Array.isArray(mod) ? [...mod] : [mod];
     modList.forEach(it => {
         if(isExternal(it.path)){// 外部链接
