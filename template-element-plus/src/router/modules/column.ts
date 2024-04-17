@@ -1,5 +1,5 @@
 import { IRouteRecordRaw } from '@/router/types'
-import { Layout } from '@/router/constant'
+import { Layout } from '@/router/base'
 import { renderIcon } from "@/utils/"
 import { Columns } from '@/icons'
 import IndexA from '@/views/menus/column/index-a.vue';

@@ -1,8 +1,9 @@
-import { Layout, ErrorPage } from '@/router/constant'
 import { IRouteRecordRaw } from './types'
 import { renderIcon } from '@/utils/'
 import { Dashboard } from '@/icons/'
 import { PageEnum } from '@/enums/pageEnum'
+import Layout from '@/Layout/index.vue';
+import ErrorPage from '@/views/error-page/index.vue';
 import DashboardComp from '@/views/menus/dashboard/index.vue'
 import RedirectComp from '@/views/redirect/index.vue';
 import LoginComp from '@/views/login/index.vue';
@@ -69,3 +70,5 @@ export const LoginRoute: IRouteRecordRaw = {
     component: LoginComp,
     meta: { title: '登录' },
 }
+
+export { Layout, ErrorPage }

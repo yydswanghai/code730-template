@@ -1,5 +1,5 @@
 import { IRouteRecordRaw } from '@/router/types'
-import { Layout } from '@/router/constant'
+import { Layout } from '@/router/base'
 import { renderIcon } from "@/utils/"
 import { ComponentOutline } from '@/icons'
 import FormComp from '@/views/menus/comp/form.vue';
