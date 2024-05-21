@@ -32,7 +32,8 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     css: {
       preprocessorOptions: {
         scss: {
-          charset: false
+          charset: false,
+          additionalData: `@use "./src/styles/var.scss" as *;`,// 全局注入scss变量
         }
       }
     },

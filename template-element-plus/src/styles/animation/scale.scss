@@ -1,5 +1,7 @@
+@use './util' as ut;
+
 .scale-transition {
-    @include animation-default();
+    @include ut.animation-default();
 
     &-enter-from,
     &-leave,
@@ -10,7 +12,7 @@
 }
 
 .scale-rotate-transition {
-    @include animation-default();
+    @include ut.animation-default();
 
     &-enter-from,
     &-leave,

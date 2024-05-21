@@ -1,0 +1,14 @@
+/*
+ * 工具函数
+ * 使用 _ 是为了标识该文件是一个部分（partial）文件
+ * 部分文件：通常不直接编译成独立的 CSS 文件，而是被其他 SCSS 文件 @import 或 @use 来引入，并作为整体编译的一部分
+ */
+@mixin animation-default() {
+  &-enter-active,
+  &-leave-active {
+      transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1) !important;
+  }
+  &-move {
+      transition: transform 0.4s;
+  }
+}

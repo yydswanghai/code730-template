@@ -71,7 +71,6 @@ function dropdownSelect(key: string) {
 const crumbsSetting = computed(() => settingStore.crumbsSetting);
 </script>
 <style lang="scss" scoped>
-@import "@/styles/var.scss";
 .breadcrumb {
   display: flex;
   padding: 0 12px;

@@ -70,7 +70,6 @@ const menuSetting = computed(() => settingStore.menuSetting);
 const headerSetting = computed(() => settingStore.headerSetting);
 </script>
 <style lang="scss" scoped>
-@import "@/styles/var.scss";
 .layout {
   width: 100%;
   height: 100%;

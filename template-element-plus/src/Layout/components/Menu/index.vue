@@ -64,7 +64,6 @@ onMounted(() => {
 });
 </script>
 <style lang="scss" scoped>
-@import "@/styles/var.scss";
 .aside-menu {
   height: 100%;
   border-right: 0;
@@ -98,7 +97,6 @@ onMounted(() => {
 }
 </style>
 <style lang="scss">
-@import "@/styles/var.scss";
 .el-popper.i-popper-menu {
   --bg: var(--i-menu-bg-color);
   --text-color: var(--i-menu-primary-color);

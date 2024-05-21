@@ -39,6 +39,8 @@
 
 暗色模式只替换了`primary`其他需要的自行添加即可
 
+* `styles/var.scss`在vite配置 css.preprocessorOptions.scss.additionalData 全局注入，以后在组件中可以直接使用它全部的变量，无需再导入
+
 3. icon组件的使用：
 
 注意：`icons`目录下生成组件，并统一导出时命名都是大驼峰式命名法（首字母也要大写）

@@ -1,5 +1,7 @@
+@use './util' as ut;
+
 .scroll-y-transition {
-    @include animation-default();
+    @include ut.animation-default();
 
     &-enter-from,
     &-leave-to {
@@ -16,7 +18,7 @@
 }
 
 .scroll-y-reverse-transition {
-    @include animation-default();
+    @include ut.animation-default();
 
     &-enter-from,
     &-leave-to {
@@ -33,7 +35,7 @@
 }
 
 .scroll-x-transition {
-    @include animation-default();
+    @include ut.animation-default();
 
     &-enter-from,
     &-leave-to {
@@ -50,7 +52,7 @@
 }
 
 .scroll-x-reverse-transition {
-    @include animation-default();
+    @include ut.animation-default();
 
     &-enter-from,
     &-leave-to {

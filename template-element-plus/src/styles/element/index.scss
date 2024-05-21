@@ -1,10 +1,4 @@
-@use "../var.scss" as variable;
-$primary-color: variable.$primary-color;
-$success-color: variable.$success-color;
-$waring-color: variable.$waring-color;
-$danger-color: variable.$danger-color;
-$error-color: variable.$error-color;
-$info-color: variable.$info-color;
+@use "../var.scss" as *;
 
 // 使用theme-chalk 生成最终css，覆盖原来的主题样式
 @forward "element-plus/theme-chalk/src/common/var.scss" with (

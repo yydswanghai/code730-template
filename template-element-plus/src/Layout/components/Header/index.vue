@@ -160,7 +160,6 @@ function openSetting() {
 }
 </script>
 <style lang="scss" scoped>
-@import "@/styles/var.scss";
 .header {
   display: flex;
   justify-content: space-between;

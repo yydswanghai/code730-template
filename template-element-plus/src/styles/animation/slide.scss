@@ -1,5 +1,7 @@
+@use './util' as ut;
+
 .slide-y-transition {
-    @include animation-default();
+    @include ut.animation-default();
 
     &-enter-from,
     &-leave-to {
@@ -9,7 +11,7 @@
 }
 
 .slide-y-reverse-transition {
-    @include animation-default();
+    @include ut.animation-default();
 
     &-enter-from,
     &-leave-to {
@@ -19,7 +21,7 @@
 }
 
 .slide-x-transition {
-    @include animation-default();
+    @include ut.animation-default();
 
     &-enter-from,
     &-leave-to {
@@ -29,7 +31,7 @@
 }
 
 .slide-x-reverse-transition {
-    @include animation-default();
+    @include ut.animation-default();
 
     &-enter-from,
     &-leave-to {

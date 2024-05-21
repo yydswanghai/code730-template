@@ -129,7 +129,6 @@ function handleCloseTagItem(element: IRouteItem) {
 }
 </script>
 <style lang="scss" scoped>
-@import "@/styles/var.scss";
 .tags-view {
   width: 100%;
   padding: 6px 0;
