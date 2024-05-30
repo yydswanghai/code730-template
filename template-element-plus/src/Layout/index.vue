@@ -22,9 +22,7 @@
       />
       <el-scrollbar class="i-scroll">
         <!-- 内容区 -->
-        <main class="i-main">
-          <Main class="layout-main" :class="{ 'no-tags-view': !fixedTagsView }" />
-        </main>
+        <Main class="layout-main" :class="{ 'no-tags-view': !fixedTagsView }" />
       </el-scrollbar>
     </el-container>
   </el-container>
@@ -95,19 +93,14 @@ const headerSetting = computed(() => settingStore.headerSetting);
     padding-left: 0;
     height: $header-height;
   }
-  .i-main {
-    padding-right: 0;
-    padding-top: 0;
-    box-sizing: border-box;
-  }
   .layout-main {
-    padding-top: 44px;
     width: 100%;
     &.no-tags-view {
       padding-top: 0;
     }
   }
   .i-scroll {
+    padding-top: 44px;
     width: 100%;
     height: 100%;
   }
