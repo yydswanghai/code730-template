@@ -7,22 +7,22 @@
         <AsideMenu />
       </el-scrollbar>
     </el-aside>
-    <el-container>
+    <el-container class="layout-right">
+      <!-- 头部 -->
+      <el-header class="layout-header" :class="{ 'i-fixed-header': fixedHeader }">
+        <Header />
+      </el-header>
+      <!-- 菜单标签 -->
+      <TagsView v-if="showTagsView"
+        :class="{
+          'i-fixed-tags-view': fixedTagsView,
+          'i-tags-view-dark-bg': isDark,
+          'i-tags-view-bg': !isDark,
+        }"
+      />
       <el-scrollbar class="i-scroll">
-        <!-- 头部 -->
-        <el-header class="layout-header" :class="{ 'i-fixed-header': fixedHeader }">
-          <Header />
-        </el-header>
         <!-- 内容区 -->
         <main class="i-main">
-          <!-- 菜单标签 -->
-          <TagsView v-if="showTagsView"
-            :class="{
-              'i-fixed-tags-view': fixedTagsView,
-              'i-tags-view-dark-bg': isDark,
-              'i-tags-view-bg': !isDark,
-            }"
-          />
           <Main class="layout-main" :class="{ 'no-tags-view': !fixedTagsView }" />
         </main>
       </el-scrollbar>
@@ -73,6 +73,7 @@ const headerSetting = computed(() => settingStore.headerSetting);
 .layout {
   width: 100%;
   height: 100%;
+  position: relative;
   --gap: 20px;
   --menu-width: v-bind(menuWidth);
   --i-menu-bg-color: v-bind(menuSetting.bg);
@@ -85,14 +86,18 @@ const headerSetting = computed(() => settingStore.headerSetting);
     z-index: 10;
     background-color: var(--i-menu-bg-color);
   }
+  .layout-right {
+    padding-left: var(--gap);
+  }
+  /***** h *****/
   .layout-header {
     padding-right: 0;
+    padding-left: 0;
     height: $header-height;
   }
   .i-main {
     padding-right: 0;
     padding-top: 0;
-    padding-left: var(--gap);
     box-sizing: border-box;
   }
   .layout-main {
@@ -104,6 +109,7 @@ const headerSetting = computed(() => settingStore.headerSetting);
   }
   .i-scroll {
     width: 100%;
+    height: 100%;
   }
   .i-tags-view-bg {
     background: #f5f7f9;
